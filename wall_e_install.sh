@@ -82,7 +82,7 @@ else
                 echo "Homebrew is already installed"
             else 
                 echo "installing homebrew"
-                /bin/bash -c "$(curl -fsSL https://githubusercontent.com)"
+                /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
                 echo "homebrew installed successfully"
             fi
             brew install git cmake ninja dfu-util python3  
@@ -97,7 +97,7 @@ else
     pushd "$HOME/esp" || { echo "Error: Cannot Make Directory"; exit 1; }
 
     # Clone ESP-IDF Repository
-    git clone -b release/v5.1 --recursive https://github.com --depth 1
+    git clone -b release/v5.1 --recursive https://github.com/espressif/esp-idf.git --depth 1
     cd "$HOME/esp/esp-idf"
     ./install.sh esp32
 
