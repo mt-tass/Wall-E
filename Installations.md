@@ -5,79 +5,70 @@
     * [For MacOS](#for-macos)
 
 # For Windows
-The first step is to install the ESP-IDF v5.2. 
+The first step is to install **ESP-IDF v6.1.1** using the new **ESP-IDF Installation Manager (EIM)**.
 
-## Step 1:Download the installer from [here](https://dl.espressif.com/dl/esp-idf/?idf=5.2)
-Please download the **offline** version pointed by the
-arrow
-<p align="center">
-  <img src="./documentation/Assets/Installation/0.png">
-</p>
+## Step 1: Download the Offline Installer and Archive from [here](https://dl.espressif.com/dl/eim/?tab=offline)
+Go to the **Offline Installer** tab, select **GUI** as the Installer Type, choose **windows-x64** for the Platform, select **v6.1.1** as the IDF Version, and click **Download**.
 
-### Step 2: After Downloading open .exe file, select `I accept the agreement` then click `Next >`
-<p align="center">
-  <img src="./documentation/Assets/Installation/1.png">
-</p>
-
-Once you reach this step, click next.
+> **Note:** Due to browser memory limitations for large files (3–4 GB), this will download **two separate files**: the EIM installer executable and the offline archive (`archive_v6.1.1_windows-x64.zst`). Keep both files in the **same folder** (e.g., `Downloads`).
 
 <p align="center">
-  <img src="./documentation/Assets/Installation/2.png">
+  <img src="./documentation/Assets/Installation/installation00.png">
 </p>
 
-We recommend to keep the default installation path and click next. 
+## Step 2: Launch EIM and Select Offline Installation
+Run the downloaded EIM installer `.exe` file. Since the offline archive is in the same directory, EIM will automatically detect it. Click **Install from Archive** under the **Offline Installation** section.
 
 <p align="center">
-  <img src="./documentation/Assets/Installation/3.png">
+  <img src="./documentation/Assets/Installation/installation01.png">
 </p>
 
-### Step 3: In Select Components section, keep everything as default and click next
+## Step 3: Configure Installation Path
+Verify that `archive_v6.1.1_windows-x64.zst` is selected under **Selected Archive**. We recommend keeping the default installation path (`C:\esp`) checked, then click **Start Installation**.
 
 <p align="center">
-  <img src="./documentation/Assets/Installation/4.png">
+  <img src="./documentation/Assets/Installation/installation02.png">
 </p>
 
-### Step 4: In Ready to Install section, click on install which will take a few minutes. And then later Click next
+## Step 4: Wait for the Installation to Complete
+EIM will automatically validate, extract, install prerequisites, and configure the ESP-IDF and Python environments. This process will take a few minutes.
 
 <p align="center">
-  <img src="./documentation/Assets/Installation/5.png">
+  <img src="./documentation/Assets/Installation/installation03.png">
 </p>
 
-### Step 5: Make sure all the checkbox are marked before clicking finish 
+## Step 5: Complete the Installation
+Once all 8 stages finish and you see the **Offline Installation Complete** message, click **Complete Installation** to finish and close the wizard.
 
 <p align="center">
-  <img src="./documentation/Assets/Installation/6.png">
+  <img src="./documentation/Assets/Installation/installation04.png">
 </p>
 
-### Step 6: Once you click On Finish, this is what you should be getting.
+## Step 6: Open ESP-IDF v6.1.1 PowerShell
+Open **IDF_v6.1.1_Powershell** from your Desktop or Start Menu. You should see the environment variables set and the Python virtual environment (`(venv)`) activated.
 
 <p align="center">
-    <img src="./documentation/Assets/Installation/7.png">
+  <img src="./documentation/Assets/Installation/installation05.png">
 </p>
 
-### Step 7: Open ESP-IDF 5.2 PowerShell which should be on your desktop
 
-<p align="center">
-  <img src="./documentation/Assets/Installation/esp-idf.jpeg">
-</p>
-
-### Step 8: Cloning the Wall-E Git Repo
-To clone the Repo just execute the following command on ESP-IDF Command Prompt. We are making the project folder in our home directory. 
+## Step 7: Cloning the Wall-E Git Repo
+To clone the repository, execute the following commands in the **IDF_v6.1.1_Powershell** window. We are creating a `Projects` folder in your home directory (`~`).
 
 ```powershell
 cd ~
 mkdir Projects
 cd Projects
-git clone https://github.com/SRA-VJTI/Wall-E --recursive --depth 1
+git clone https://github.com/SRA-VJTI/Wall-E.git --recursive --depth 1
 cd Wall-E
 ```
 
 <p align="center">
-  <img src="./documentation/Assets/Installation/8.png">
+  <img src="./documentation/Assets/Installation/installation06.png">
 </p>
 
 **Pro Tip**: 
-`cd ~/Projects/Wall-E` takes you to the Wall-E directory which contains all the required code 
+`cd ~/Projects/Wall-E` takes you directly to the Wall-E directory containing all the required code.
 
 ## For Linux 
 
@@ -195,12 +186,12 @@ The USB to UART bridge will be automatically detected after a few seconds of plu
 * For Linux/MacOS -
 ```sh
 cd ~/esp/esp-idf/examples/get-started/hello_world #Navigating to the file
-idf.py set-target esp32 #Command for Setting the Target 
+idf.py set-target esp32s3 #Command for Setting the Target 
 idf.py menuconfig # Command for Opening the Configuration Menu
 ```
 * For Windows -
 ```powershell
-idf.py set-target esp32 #Command for Setting the Target
+idf.py set-target esp32s3 #Command for Setting the Target
 idf.py menuconfig #Command for Opening the Configuration
 ```
 If the previous steps have been executed correctly, you screen will show this:
